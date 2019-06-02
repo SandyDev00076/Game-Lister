@@ -1,0 +1,13 @@
+.App {
+  font-family: teen;
+}
+
+@font-face {
+  font-family: steelfish;
+  src: url(./assets/fonts/steelfish.woff);
+}
+
+@font-face {
+  font-family: teen;
+  src: url(./assets/fonts/teen.woff);
+}
