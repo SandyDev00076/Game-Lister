@@ -1,0 +1,110 @@
+.game {
+    box-shadow: 0 0 5px grey;
+    border-radius: 10px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 0.4fr 1fr 0.5fr;
+
+    transition-property: box-shadow, background-color;
+    transition-duration: 0.25s;
+
+    cursor: default;
+}
+
+.gamerank {
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gamedetails {
+    padding: 10px;
+    padding-left: 0;
+    line-height: 1.1em;
+}
+
+.gamesales {
+    text-align: center;
+    padding: 10px;
+}
+
+.game:hover {
+    box-shadow: 0 0 10px grey;
+    background-color: rgb(243, 243, 243);
+}
+
+.gamename {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.gameplatform {
+    font-size: 0.7em;
+    color: cornflowerblue;
+}
+
+.gamepub {
+    color: grey;
+    font-size: 0.8em;
+}
+
+.gamegenre {
+    font-size: 0.8em;
+    border: solid 5px orangered;
+    border-radius: 5px;
+    color: white;
+    background-color: orangered;
+}
+
+.gameyear {
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 3px;
+    border: solid 1px cornflowerblue;
+    border-radius: 5px;
+}
+
+.gamegsales {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: green;
+}
+
+.listcontainer {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
+}
+
+.navdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.getprev, .getnext {
+    text-align: center;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* MEDIA QUERY FOR TABS */
+@media screen and (max-width: 1024px) {
+    .listcontainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navdiv {
+        grid-column: 1/-1;
+    }
+}
+
+/* MEDIA QUERY FOR MOBILES */
+@media screen and (max-width: 630px) {
+    .listcontainer {
+        grid-template-columns: 1fr;
+    }
+}

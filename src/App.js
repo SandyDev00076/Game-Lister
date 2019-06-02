@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { ListPageComponent } from './components/ListPage/ListPage';
+import gamesJson from './assets/games.json';
+import * as StorageService from './services/storage.service';
+import { NavBarComponent } from './components/NavBar/NavBar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class AppComponent extends Component {
+  state = {
+    searchStr: '',
+    sortingOption: 'None'
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <NavBarComponent searchFor={this.getSearchResult} sortingOption={this.getSortedResult}/>
+        <ListPageComponent searchStr={this.state.searchStr} sortOption={this.state.sortingOption}/>
+      </div>
+    )
+  }
+
+  componentDidMount()  {
+    // getting the csv details
+    // storing it in the localStorage using the storage service
+    StorageService.saveGames(gamesJson);
+  }
+
+  getSearchResult = (searchStr) => {
+    this.setState({ searchStr });
+  }
+
+  getSortedResult = (option) => {
+    this.setState({ sortingOption: option });
+  }
 }
 
-export default App;
+export default AppComponent;
